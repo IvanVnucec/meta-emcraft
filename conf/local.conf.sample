@@ -283,7 +283,7 @@ PRSERV_HOST = "localhost:0"
 # =========================================================================
 # Set EULA acceptance
 # =========================================================================
-ACCEPT_EULA_stm32mp1 = "1"
+ACCEPT_EULA_stm32mp1-som = "1"
 
 # Emcraft
 #DL_DIR = "/mnt/build/downloads/"
