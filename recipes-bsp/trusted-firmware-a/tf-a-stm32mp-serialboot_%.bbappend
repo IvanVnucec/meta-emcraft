@@ -7,7 +7,7 @@
 
 
 #STM32MP_SOURCE_SELECTION = "github"
-SRC_URI = "git://gitlab.com/emcraft/stm32mp15x/tf-a-stm32mp.git;protocol=https;branch=v2.2-stm32mp-som"
+SRC_URI = "git://gitlab.com/emcraft/stm32mp15x/tf-a-stm32mp.git;protocol=https;branch=linux-stm32mp1-3.0.0"
 
 SRCREV = "${AUTOREV}"
 
