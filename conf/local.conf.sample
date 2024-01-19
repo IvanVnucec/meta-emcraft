@@ -285,6 +285,9 @@ PRSERV_HOST = "localhost:0"
 # =========================================================================
 ACCEPT_EULA_stm32mp1-som = "1"
 
+# enable security and TPM2 features if meta-security is included in the build
+DISTRO_FEATURES:append = "${@' tpm2 security' if os.path.isfile('${OEROOT}/layers/meta-security/conf/layer.conf') else ''}"
+
 # Emcraft
 #DL_DIR = "/mnt/build/downloads/"
 #SSTATE_DIR ?= "/mnt/build/sstate-cache"
