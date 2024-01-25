@@ -316,3 +316,6 @@ PRSERV_HOST = "localhost:0"
 #STM32MP_SOURCE_SELECTION:pn-optee-os-stm32mp = "github"
 #STM32MP_SOURCE_SELECTION:pn-tf-a-stm32mp = "github"
 #STM32MP_SOURCE_SELECTION:pn-u-boot-stm32mp = "github"
+
+# enable security and TPM2 features if meta-security is included in the build
+DISTRO_FEATURES:append = "${@' tpm2 security' if os.path.isfile('${OEROOT}/layers/meta-security/conf/layer.conf') else ''}"
