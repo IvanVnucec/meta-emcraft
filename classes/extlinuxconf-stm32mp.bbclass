@@ -245,6 +245,7 @@ python do_create_multiextlinux_config() {
                     # Configure dynamically the default menu configuration if there is no specific one configured
                     if d.getVar('UBOOT_EXTLINUX_DEFAULT_LABEL:%s' % config):
                         bb.note(">>> Specific configuration for UBOOT_EXTLINUX_DEFAULT_LABEL var detected for %s label: %s" % (config, d.getVar('UBOOT_EXTLINUX_DEFAULT_LABEL:%s' % config)))
+                        d.setVar('UBOOT_EXTLINUX_DEFAULT_LABEL', d.getVar('UBOOT_EXTLINUX_DEFAULT_LABEL:%s' % config))
                     else:
                         bb.note(">>> Set UBOOT_EXTLINUX_DEFAULT_LABEL to %s" % config)
                         d.setVar('UBOOT_EXTLINUX_DEFAULT_LABEL', config)
