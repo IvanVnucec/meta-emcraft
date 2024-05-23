@@ -43,7 +43,7 @@ MACHINE ??= "qemux86-64"
 # these defaults.
 #
 # This sets the default distribution to be nodistro if no other distribution is selected:
-DISTRO ??= "nodistro"
+DISTRO = "openstlinux-weston"
 
 #
 # Where to place downloads
