@@ -323,3 +323,4 @@ DISTRO_FEATURES:append = "${@' tpm2 security' if os.path.isfile('${OEROOT}/layer
 # Accept STMicro EULA
 ACCEPT_EULA_stm32mp15-som = "1"
 ACCEPT_EULA_stm32mp157d-som = "1"
+ACCEPT_EULA_stm32mp157-somic = "1"
