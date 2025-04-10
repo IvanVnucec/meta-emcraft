@@ -5,4 +5,4 @@ SRC_URI:class-devupstream = "git://github.com/IvanVnucec/u-boot-stm32mp.git;prot
 
 SRCREV:class-devupstream = "${AUTOREV}"
 
-UBOOT_CONFIG = "stm32mp157_somic"
+UBOOT_MACHINE = "stm32mp157_somic_defconfig"
