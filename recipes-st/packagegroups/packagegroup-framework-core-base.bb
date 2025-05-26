@@ -9,28 +9,12 @@ inherit packagegroup
 PROVIDES = "${PACKAGES}"
 PACKAGES = "\
             packagegroup-framework-core-base            \
-            packagegroup-framework-core-base-display    \
-            packagegroup-framework-core-base-mm         \
             packagegroup-framework-core-base-fs         \
             "
 
 # Manage to provide all framework core base packages with overall one
 RDEPENDS:packagegroup-framework-core-base = "\
-    packagegroup-framework-core-base-display    \
-    packagegroup-framework-core-base-mm         \
     packagegroup-framework-core-base-fs         \
-    "
-
-SUMMARY:packagegroup-framework-core-base-display = "Framework core base components for display"
-RDEPENDS:packagegroup-framework-core-base-display = "\
-    libdrm          \
-    libdrm-tests    \
-    \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'libsdl2', '', d)} \
-    "
-
-SUMMARY:packagegroup-framework-core-base-mm = "Framework core base components for multimedia"
-RDEPENDS:packagegroup-framework-core-base-mm = "\
     "
 
 SUMMARY:packagegroup-framework-core-base-fs = "Framework core base components for filesystem"

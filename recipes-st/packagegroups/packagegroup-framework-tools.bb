@@ -12,8 +12,6 @@ PACKAGES = "\
             packagegroup-framework-tools-core       \
             packagegroup-framework-tools-kernel     \
             packagegroup-framework-tools-network    \
-            packagegroup-framework-tools-audio      \
-            packagegroup-framework-tools-ui         \
             packagegroup-framework-tools-python3    \
             "
 
@@ -22,8 +20,6 @@ RDEPENDS:packagegroup-framework-tools = "\
     packagegroup-framework-tools-core       \
     packagegroup-framework-tools-kernel     \
     packagegroup-framework-tools-network    \
-    packagegroup-framework-tools-audio      \
-    packagegroup-framework-tools-ui         \
     packagegroup-framework-tools-python3    \
     "
 
@@ -70,34 +66,10 @@ SUMMARY:packagegroup-framework-tools-network = "Framework tools components for n
 RDEPENDS:packagegroup-framework-tools-network = "\
     tcpdump         \
     packagegroup-core-full-cmdline-extended \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'iw', '', d)}                       \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'wpa-supplicant', '', d)}           \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'hostapd', '', d)}                  \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'wireless-regdb-static', '', d)}    \
     openssh-sftp    \
     ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd-networkd-configuration', '', d)}    \
     usbip uhubctl   \
     bridge-utils    \
-    "
-
-SUMMARY:packagegroup-framework-tools-audio = "Framework tools components for audio"
-RDEPENDS:packagegroup-framework-tools-audio = "\
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio', '', d)}                     \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio-server', '', d)}              \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio-misc', '', d)}                \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'pulseaudio-module-combine-sink', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio bluetooth', 'pulseaudio-module-bluetooth-discover', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio bluetooth', 'pulseaudio-module-bluetooth-policy', '', d)}   \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio bluetooth', 'pulseaudio-module-bluez5-device', '', d)}      \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio bluetooth', 'pulseaudio-module-bluez5-discover', '', d)}    \
-    "
-
-SUMMARY:packagegroup-framework-tools-ui = "Framework tools components for ui"
-RDEPENDS:packagegroup-framework-tools-ui = "\
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'xvinfo', '', d)}    \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'gplv3', 'glmark2', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'gplv3', 'netdata', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'gplv3', 'lmsensors-libsensors lmsensors-sensors', '', d)} \
     "
 
 SUMMARY:packagegroup-framework-tools-python3 = "Framework tools components for python3"

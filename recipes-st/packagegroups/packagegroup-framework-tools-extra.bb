@@ -12,8 +12,6 @@ PACKAGES = "\
             packagegroup-framework-tools-extra-core     \
             packagegroup-framework-tools-extra-kernel   \
             packagegroup-framework-tools-extra-network  \
-            packagegroup-framework-tools-extra-audio    \
-            packagegroup-framework-tools-extra-ui       \
             packagegroup-framework-tools-extra-python3  \
             "
 
@@ -22,8 +20,6 @@ RDEPENDS:packagegroup-framework-tools-extra = "\
     packagegroup-framework-tools-extra-core     \
     packagegroup-framework-tools-extra-kernel   \
     packagegroup-framework-tools-extra-network  \
-    packagegroup-framework-tools-extra-audio    \
-    packagegroup-framework-tools-extra-ui       \
     packagegroup-framework-tools-extra-python3  \
     "
 
@@ -76,17 +72,6 @@ RDEPENDS:packagegroup-framework-tools-extra-network = "\
     net-snmp        \
     \
     neard           \
-    "
-
-SUMMARY:packagegroup-framework-tools-extra-audio = "Framework tools extra components for audio"
-RDEPENDS:packagegroup-framework-tools-extra-audio = "\
-    ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa-utils-aplay', '', d)} \
-    "
-
-SUMMARY:packagegroup-framework-tools-extra-ui = "Framework tools extra components for ui"
-RDEPENDS:packagegroup-framework-tools-extra-ui = "\
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11perf', '', d)}       \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'gtkperf', '', d)}       \
     "
 
 SUMMARY:packagegroup-framework-tools-extra-python3 = "Framework tools extra components for python3"

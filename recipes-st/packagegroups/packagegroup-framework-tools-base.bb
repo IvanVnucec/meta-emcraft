@@ -12,8 +12,6 @@ PACKAGES = "\
             packagegroup-framework-tools-base-core      \
             packagegroup-framework-tools-base-kernel    \
             packagegroup-framework-tools-base-network   \
-            packagegroup-framework-tools-base-audio     \
-            packagegroup-framework-tools-base-ui        \
             packagegroup-framework-tools-base-python3   \
             "
 
@@ -22,8 +20,6 @@ RDEPENDS:packagegroup-framework-tools-base = "\
     packagegroup-framework-tools-base-core      \
     packagegroup-framework-tools-base-kernel    \
     packagegroup-framework-tools-base-network   \
-    packagegroup-framework-tools-base-audio     \
-    packagegroup-framework-tools-base-ui        \
     packagegroup-framework-tools-base-python3   \
     "
 
@@ -62,17 +58,6 @@ RDEPENDS:packagegroup-framework-tools-base-network = "\
     ethtool         \
     iproute2        \
     curl            \
-    "
-
-SUMMARY:packagegroup-framework-tools-base-audio = "Framework tools base components for audio"
-RDEPENDS:packagegroup-framework-tools-base-audio = "\
-    ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'libasound alsa-conf', '', d)}  \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa-utils', '', d)}           \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa-plugins', '', d)}         \
-    "
-
-SUMMARY:packagegroup-framework-tools-base-ui = "Framework tools base components for ui"
-RDEPENDS:packagegroup-framework-tools-base-ui = "\
     "
 
 SUMMARY:packagegroup-framework-tools-base-python3 = "Framework tools base components for python3"
