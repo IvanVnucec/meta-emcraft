@@ -1,0 +1,53 @@
+diff --git a/arch/arm/boot/dts/stm32mp157x-som.dtsi b/arch/arm/boot/dts/stm32mp157x-som.dtsi
+index 5a8012cf7b94..6333f5d24e7e 100644
+--- a/arch/arm/boot/dts/stm32mp157x-som.dtsi
++++ b/arch/arm/boot/dts/stm32mp157x-som.dtsi
+@@ -651,6 +651,8 @@ mdio0 {
+ 		compatible = "snps,dwmac-mdio";
+ 		phy0: ethernet-phy@0 {
+ 			reg = <0>;
++			qca,clk-out-frequency = <125000000>;
++			qca,disable-smarteee;
+ 		};
+ 	};
+ };
+diff --git a/arch/arm/mach-stm32/board-dt.c b/arch/arm/mach-stm32/board-dt.c
+index 25dbd0ecbcbe..079af36f42e9 100644
+--- a/arch/arm/mach-stm32/board-dt.c
++++ b/arch/arm/mach-stm32/board-dt.c
+@@ -31,35 +31,8 @@ static const char *const stm32_compat[] __initconst = {
+ 	NULL
+ };
+ 
+-#define PHY_ID_AR8031   0x004dd074
+-static int ar8031_phy_fixup(struct phy_device *dev)
+-{
+-	u16 val;
+-
+-	if (of_machine_is_compatible("emcraft,stm32mp1-som") ||
+-	    of_machine_is_compatible("emcraft,stm32mp157d-som")) {
+-		/* enable rgmii rxc skew and phy mode select to RGMII copper */
+-		phy_write(dev, 0x1d, 0x1f);
+-		phy_write(dev, 0x1e, 0x8);
+-
+-		phy_write(dev, 0x1d, 0x05);
+-		phy_write(dev, 0x1e, 0x100);
+-
+-		/* Make the phy generate 125MHz clock on CLK_25M output clock */
+-		phy_write(dev, 0xd, 0x0007);
+-		phy_write(dev, 0xe, 0x8016);
+-		phy_write(dev, 0xd, 0x4007);
+-		val = phy_read(dev, 0xe);
+-		phy_write(dev, 0xe, val | 0x18);
+-	}
+-	return 0;
+-}
+-
+-
+ static void __init stm32_init_machine(void)
+ {
+-	phy_register_fixup_for_uid(PHY_ID_AR8031, 0xffffffff,
+-				   ar8031_phy_fixup);
+ }
+ 
+ DT_MACHINE_START(STM32DT, "STM32 (Device Tree Support)")
